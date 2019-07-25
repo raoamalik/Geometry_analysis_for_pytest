@@ -8,6 +8,40 @@ import pytest
 import sys
 import numpy as np
 
+@pytest.fixture()
+def water_molecule():
+    name = "water"
+    symbols = ["H", "O", "H"]
+    coordinates = np.array([[2,0,0], [0,0,0], [-2,0,0]])
+    
+    water = geometry_analysis.Molecule(name, symbols, coordinates)
+    return water
+    
+
+def test_create_failure():
+    name = 25
+    symbols = ["H", "O", "H"]
+    coordinates = np.zeros([3,3])
+
+    with pytest.raises(TypeError):
+        water = geometry_analysis.Molecule(name, symbols, coordinates)
+
+def test_molecule_set_coordindates(water_molecule):
+    """Test that bond list is rebuilt when we reset coordinates"""
+
+    num_bonds = len(water_molecule.bonds)
+
+    assert num_bonds == 2 
+
+    new_coordinates = np.array([[5,0,0], [0,0,0], [-2,0,0]])
+    water_molecule.coordinates = new_coordinates
+
+    new_bonds = len(water_molecule.bonds)
+   
+    assert new_bonds == 1
+
+    assert np.array
+
 def test_geometry_analysis_imported():
     """Sample test, will always pass so long as import statement worked"""
     assert "geometry_analysis" in sys.modules
@@ -21,12 +55,24 @@ def test_calculate_distance():
 
     assert expected_distance == calculated_distance 
 
-    def test_calculate_angle():
-        """Test the calculate_angle function"""
-        rA = np.array([0, 0, 1])
-        rB = np.array([0, 1, 0])
-        rC = np.array([1, 0, 0])
-        expected_angle = 90
-        calculated_angle = geometry_analysis.calculate_angle(rA, rB, rC)
+def test_calculate_angle():
+    """Test the calculate_angle function"""
+    rA = np.array([0, 0, 1])
+    rB = np.array([0, 1, 0])
+    rC = np.array([1, 0, 0])
+    expected_angle = 60
+    calculated_angle = geometry_analysis.calculate_angle(rA, rB, rC, degrees=True)
 
-        assert expected_angle == calculated_angle
+    assert np.isclose(calculated_angle, expected_angle)
+    print("This angle test: ", calculated_angle)
+
+
+@pytest.mark.parametrize("p1, p2, p3, expected_angle", [
+    (np.array([1, 0, 0]), np.array([0, 0, 0]), np.array([0, 1, 0]), 90),
+    (np.array([0, 0, -1]), np.array([0, 1, 0]), np.array([1, 0, 0]), 60),
+])
+
+def test_calculate_angle(p1, p2, p3, expected_angle):
+
+    calculated_angle = geometry_analysis.calculate_angle(p1, p2, p3, degrees=True)
+    assert np.isclose(expected_angle, calculated_angle)
