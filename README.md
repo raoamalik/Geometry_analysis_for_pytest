@@ -10,7 +10,7 @@ A python package for tehe MolSSI Software Summer School.
 ### Copyright
 
 Copyright (c) 2019, Malik Rao
-
+[![Build Status](https://travis-ci.org/raoamalik/Geometry_analysis_for_pytest.svg?branch=master)](https://travis-ci.org/raoamalik/Geometry_analysis_for_pytest)
 
 #### Acknowledgements
  
