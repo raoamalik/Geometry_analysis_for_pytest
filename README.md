@@ -1,16 +1,17 @@
 geometry_analysis
 ==============================
 [//]: # (Badges)
-[![Travis Build Status](https://travis-ci.org/REPLACE_WITH_OWNER_ACCOUNT/geometry_analysis.png)](https://travis-ci.org/REPLACE_WITH_OWNER_ACCOUNT/geometry_analysis)
-[![AppVeyor Build status](https://ci.appveyor.com/api/projects/status/REPLACE_WITH_APPVEYOR_LINK/branch/master?svg=true)](https://ci.appveyor.com/project/REPLACE_WITH_OWNER_ACCOUNT/geometry_analysis/branch/master)
-[![codecov](https://codecov.io/gh/REPLACE_WITH_OWNER_ACCOUNT/geometry_analysis/branch/master/graph/badge.svg)](https://codecov.io/gh/REPLACE_WITH_OWNER_ACCOUNT/geometry_analysis/branch/master)
+[![Build Status](https://travis-ci.org/raoamalik/Geometry_analysis_for_pytest.svg?branch=master)](https://travis-ci.org/raoamalik/Geometry_analysis_for_pytest)
+
+[![codecov](https://codecov.io/gh/raoamalik/Geometry_analysis_for_pytest/branch/master/graph/badge.svg)](https://codecov.io/gh/raoamalik/Geometry_analysis_for_pytest)
+
 
 A python package for tehe MolSSI Software Summer School.
+
 
 ### Copyright
 
 Copyright (c) 2019, Malik Rao
-[![Build Status](https://travis-ci.org/raoamalik/Geometry_analysis_for_pytest.svg?branch=master)](https://travis-ci.org/raoamalik/Geometry_analysis_for_pytest)
 
 #### Acknowledgements
  
